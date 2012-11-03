@@ -2,7 +2,6 @@
     "name": "jasmine-stealth-node",
     "version": "0.0.12",
     "description": "Node.js module providing helpers that add a little sugar to Jasmine's spies.",
-    "preferGlobal": "false",
     "main": "index.js",
     "author": "Justin Searls",
     "keywords": ["bdd", "jasmine", "stealth", "jasmine-stealth"],
