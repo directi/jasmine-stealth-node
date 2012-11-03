@@ -5,7 +5,8 @@
 
 jasmine-stealth-node is a [Jasmine](https://github.com/pivotal/jasmine) helper that adds a little sugar to Jasmine's spies.
 
-**[Download the latest version here](https://raw.github.com/searls/jasmine-stealth/master/dist/jasmine-stealth.js)**.
+This is a one-time port of [Jasmine-Stealth](https://github.com/searls/jasmine-stealth) to be leveraged easily in the node.js environment. Hopefully someone finds this useful.
+
 
 # Conditional Stubbing
 
