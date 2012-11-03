@@ -8,7 +8,7 @@
     "keywords": ["bdd", "jasmine", "stealth", "jasmine-stealth"],
     "repository" : {
         "type": "git",
-        "url": "https://github.com/searls/jasmine-stealth.git"
+        "url": "https://github.com/techieBrandon/jasmine-stealth-node.git"
     },
     "dependencies": {
     },
