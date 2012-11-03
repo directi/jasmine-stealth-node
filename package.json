@@ -11,6 +11,7 @@
         "url": "https://github.com/techieBrandon/jasmine-stealth-node.git"
     },
     "dependencies": {
+      "jasmine-node": "1.0.26"
     },
     "engines": { "node": "*" }
 }

@@ -1,5 +1,6 @@
 (function() {
 
+  console.log("Jasmine helpers loaded");
   (function(jasmine) {
     var mostRecentlyUsed, o, stringifyExpectation;
     stringifyExpectation = function(expectation) {
@@ -36,7 +37,7 @@
         }
       });
     });
-    window.When = window.Given = function() {
+    global.When = global.Given = function() {
       var assignResultTo, mostRecentlyUsed, setupFunction;
       setupFunction = o(arguments).firstThat(function(arg) {
         return o(arg).isFunction();
@@ -44,7 +45,7 @@
       assignResultTo = o(arguments).firstThat(function(arg) {
         return o(arg).isString();
       });
-      mostRecentlyUsed = window.Given;
+      mostRecentlyUsed = global.Given;
       return beforeEach(function() {
         var context, result;
         context = jasmine.getEnv().currentSpec;
@@ -58,9 +59,9 @@
         }
       });
     };
-    window.Then = function(expectationFunction) {
+    global.Then = function(expectationFunction) {
       var expectations, mostRecentlyUsed, subsequentThen;
-      mostRecentlyUsed = window.Then;
+      mostRecentlyUsed = global.Then;
       expectations = [expectationFunction];
       subsequentThen = function(additionalExpectation) {
         expectations.push(additionalExpectation);
@@ -81,8 +82,8 @@
         And: subsequentThen
       };
     };
-    mostRecentlyUsed = window.Given;
-    window.And = function() {
+    mostRecentlyUsed = global.Given;
+    global.And = function() {
       return mostRecentlyUsed.apply(this, jasmine.util.argsToArray(arguments));
     };
     return o = function(thing) {

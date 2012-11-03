@@ -1,5 +1,9 @@
-window.context = window.describe
-window.xcontext = window.xdescribe
+global.context = global.describe
+global.xcontext = global.xdescribe
+
+console.log "global:"
+console.log global
+
 describe "jasmine-stealth", ->
   describe "aliases", ->
     it "creates createStub as an alias of createSpy", ->
@@ -7,8 +11,9 @@ describe "jasmine-stealth", ->
 
     describe ".stubFor", ->
       context "existing method", ->
-        When -> stubFor(window, "prompt").andReturn("lol")
-        Then -> window.prompt() == "lol"
+        # Given -> { log = (msg) -> return msg
+        When -> stubFor(global.console, "log").andReturn(true)
+        Then -> global.console.log() == true
 
       context "non-existing method", ->
         Given -> @obj = { woot: null }
@@ -219,19 +224,19 @@ describe "jasmine-stealth", ->
       expect(save).toHaveBeenCalledWith(captor.capture())
       expect(captor.value.name).toBe("foo")
 
-  describe "window.spyOnConstructor", ->
+  describe "global.spyOnConstructor", ->
     describe "a simple class", ->
-      class window.Pizza
+      class global.Pizza
         makeSlice: -> "nah"
 
       context "spying on the constructor - string method arg", ->
-        Given -> @pizzaSpies = spyOnConstructor(window, "Pizza", "makeSlice")
+        Given -> @pizzaSpies = spyOnConstructor(global, "Pizza", "makeSlice")
         When -> new Pizza("banz").makeSlice("lol")
         Then -> expect(@pizzaSpies.constructor).toHaveBeenCalledWith("banz")
         Then -> expect(@pizzaSpies.makeSlice).toHaveBeenCalledWith("lol")
 
       context "spying on the constructor - array method arg", ->
-        Given -> @pizzaSpies = spyOnConstructor(window, "Pizza", ["makeSlice"])
+        Given -> @pizzaSpies = spyOnConstructor(global, "Pizza", ["makeSlice"])
         When -> new Pizza("banz").makeSlice("lol")
         Then -> expect(@pizzaSpies.constructor).toHaveBeenCalledWith("banz")
         Then -> expect(@pizzaSpies.makeSlice).toHaveBeenCalledWith("lol")
@@ -241,14 +246,14 @@ describe "jasmine-stealth", ->
         Then -> @pizza.makeSlice() == "nah"
 
     describe "a collaboration", ->
-      class window.View
+      class global.View
         serialize: ->
           model: new Model().toJSON()
-      class window.Model
+      class global.Model
 
       context "stubbing the model's method", ->
-        Given -> @modelSpies = spyOnConstructor(window, "Model", "toJSON")
-        Given -> @subject = new window.View()
+        Given -> @modelSpies = spyOnConstructor(global, "Model", "toJSON")
+        Given -> @subject = new global.View()
         Given -> @modelSpies.toJSON.andReturn("some json")
         When -> @result = @subject.serialize()
         Then -> expect(@result).toEqual
