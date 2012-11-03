@@ -9,6 +9,7 @@ This is a one-time port of [Jasmine-Stealth](https://github.com/searls/jasmine-s
 
 As this is wrote in coffeescript you likely will need to compile to javascript before being able to successfully leverage. Please include in your Cakefile or execute the package's cakefile task as such:
 ``` bash
+cd <project_root>/node_modules/jasmine-stealth-node
 cake build:compile:coffee
 ```
 
