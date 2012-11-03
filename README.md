@@ -7,6 +7,10 @@ jasmine-stealth-node is a [Jasmine](https://github.com/pivotal/jasmine) helper t
 
 This is a one-time port of [Jasmine-Stealth](https://github.com/searls/jasmine-stealth) to be leveraged easily in the node.js environment. Hopefully someone finds this useful.
 
+As this is wrote in coffeescript you likely will need to compile to javascript before being able to successfully leverage. Please include in your Cakefile or execute the package's cakefile task as such:
+``` bash
+cake build:compile:coffee
+```
 
 # Conditional Stubbing
 
