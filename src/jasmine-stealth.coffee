@@ -3,9 +3,10 @@ jasmine-stealth @@VERSION@@
 Makes Jasmine spies a bit more robust
 site: https://github.com/searls/jasmine-stealth
 ###
-root = this
 
 #private helpers
+
+console.log "Loading jasmine-stealth-node"
 
 _ = (obj) ->
   each: (iterator) ->
@@ -16,6 +17,8 @@ _ = (obj) ->
     Object::toString.call(obj) is "[object String]"
 
 #spyOnConstructor
+
+root = global
 
 root.spyOnConstructor = (owner, classToFake, methodsToSpy = []) ->
   methodsToSpy = [methodsToSpy] if _(methodsToSpy).isString()
@@ -147,3 +150,7 @@ class Captor
     new jasmine.Matchers.Capture(@)
 
 jasmine.captor = () -> new Captor()
+
+console.log jasmine
+
+# exports = module.exports = root
