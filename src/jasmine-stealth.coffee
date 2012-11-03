@@ -6,7 +6,6 @@ site: https://github.com/searls/jasmine-stealth
 
 #private helpers
 
-console.log "Loading jasmine-stealth-node"
 
 _ = (obj) ->
   each: (iterator) ->
@@ -151,6 +150,5 @@ class Captor
 
 jasmine.captor = () -> new Captor()
 
-console.log jasmine
 
 # exports = module.exports = root
