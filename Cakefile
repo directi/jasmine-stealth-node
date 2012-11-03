@@ -5,10 +5,6 @@ catchFailures = (err, stdout, stderr) ->
   console.log stdout + stderr
 
 task 'build:compile:coffee', 'Compiles ./src *.coffee files into complimentary *.js files in ./lib', ->
-  catchFailures = (err, stdout, stderr) ->
-    throw err if err
-    console.log stdout + stderr
-
   exec 'coffee --compile index.coffee', catchFailures
   exec 'coffee --compile --output lib/ src/', catchFailures
 
