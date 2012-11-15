@@ -1,6 +1,6 @@
 {
   "name": "jasmine-stealth-node",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "dependencies": {
     "coffee-script": {
       "version": "1.4.0"
