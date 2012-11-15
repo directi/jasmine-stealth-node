@@ -1,0 +1,26 @@
+{
+  "name": "jasmine-stealth-node",
+  "version": "0.0.12",
+  "dependencies": {
+    "coffee-script": {
+      "version": "1.4.0"
+    },
+    "jasmine-node": {
+      "version": "1.0.26",
+      "dependencies": {
+        "jasmine-reporters": {
+          "version": "0.2.1"
+        },
+        "requirejs": {
+          "version": "2.1.1"
+        },
+        "walkdir": {
+          "version": "0.0.5"
+        },
+        "underscore": {
+          "version": "1.4.2"
+        }
+      }
+    }
+  }
+}

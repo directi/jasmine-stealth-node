@@ -10,7 +10,11 @@
         "url": "https://github.com/techieBrandon/jasmine-stealth-node.git"
     },
     "dependencies": {
-      "jasmine-node": "1.0.26"
+      "coffee-script": ">=1.4.0",
+      "jasmine-node": ">=1.0.26"      
+    },
+    "scripts": {
+        "install": "./node_modules/coffee-script/bin/cake build:compile:coffee"
     },
     "engines": { "node": "*" }
 }
